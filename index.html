@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Czuły Dziennik - 52 tygodnie czułości dla siebie</title>
+    <meta name="description" content="Twoje życie jest ważne. 52 tygodnie codziennych praktyk czułości, wdzięczności i troski o siebie. Zacznij w dowolnym momencie.">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --cream: #faf7f2;
+            --warm-white: #fff9f0;
+            --soft-pink: #f4e8e0;
+            --terracotta: #d4a59a;
+            --deep-rose: #b87f7a;
+            --sage: #9fb5a2;
+            --forest: #5a7063;
+            --charcoal: #3d3d3d;
+            --soft-shadow: rgba(0, 0, 0, 0.08);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 300;
+            color: var(--charcoal);
+            background: var(--cream);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            margin-bottom: 1rem;
+            font-weight: 300;
+            letter-spacing: -0.02em;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            margin-bottom: 1.5rem;
+            color: var(--deep-rose);
+        }
+
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            margin-bottom: 1rem;
+            color: var(--forest);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes floatGentle {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        /* Header/Hero Section */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--warm-white) 0%, var(--soft-pink) 100%);
+            position: relative;
+            overflow: hidden;
+            padding: 2rem;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(180, 127, 122, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -200px;
+            right: -200px;
+            animation: floatGentle 6s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(159, 181, 162, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            bottom: -150px;
+            left: -150px;
+            animation: floatGentle 8s ease-in-out infinite;
+            animation-delay: 1s;
+        }
+
+        .hero-content {
+            max-width: 1100px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text {
+            text-align: left;
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px var(--soft-shadow);
+            animation: floatGentle 5s ease-in-out infinite;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            color: var(--deep-rose);
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+
+        .hero-description {
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            margin-bottom: 2.5rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.3s forwards;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: var(--deep-rose);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px var(--soft-shadow);
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.6s forwards;
+        }
+
+        .cta-button:hover {
+            background: var(--forest);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .price-tag {
+            display: inline-block;
+            margin-top: 1rem;
+            font-size: 1.1rem;
+            color: var(--charcoal);
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.7s forwards;
+        }
+
+        .price-tag .original-price {
+            text-decoration: line-through;
+            color: #999;
+            margin-right: 0.5rem;
+        }
+
+        .price-tag .current-price {
+            color: var(--deep-rose);
+            font-weight: 600;
+            font-size: 1.3rem;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 5rem 0;
+        }
+
+        .intro-section {
+            background: var(--warm-white);
+            text-align: center;
+        }
+
+        .intro-text {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            line-height: 1.9;
+        }
+
+        /* Image Gallery Section */
+        .gallery-section {
+            background: var(--soft-pink);
+        }
+
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px var(--soft-shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Benefits Grid */
+        .benefits-section {
+            background: var(--cream);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px var(--soft-shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+            color: var(--deep-rose);
+            font-weight: 300;
+        }
+
+        .benefit-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--deep-rose);
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .benefit-description {
+            color: var(--charcoal);
+            line-height: 1.7;
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            background: linear-gradient(135deg, var(--soft-pink) 0%, var(--cream) 100%);
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .step-number {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            background: var(--sage);
+            color: white;
+            border-radius: 50%;
+            line-height: 60px;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .step-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: var(--forest);
+        }
+
+        /* Why Tenderness Section */
+        .why-section {
+            background: var(--warm-white);
+            text-align: center;
+        }
+
+        .why-content {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.3rem;
+            line-height: 1.9;
+            padding: 2rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px var(--soft-shadow);
+        }
+
+        /* For Who Section */
+        .for-who-section {
+            background: var(--soft-pink);
+            text-align: center;
+        }
+
+        .for-who-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 3rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px var(--soft-shadow);
+            font-size: 1.2rem;
+            line-height: 1.9;
+        }
+
+        /* CTA Section */
+        .final-cta {
+            background: linear-gradient(135deg, var(--deep-rose) 0%, var(--terracotta) 100%);
+            color: white;
+            text-align: center;
+            padding: 6rem 2rem;
+        }
+
+        .final-cta h2 {
+            color: white;
+        }
+
+        .final-cta p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 2rem auto;
+            line-height: 1.9;
+        }
+
+        .cta-button-light {
+            background: white;
+            color: var(--deep-rose);
+        }
+
+        .cta-button-light:hover {
+            background: var(--cream);
+            color: var(--forest);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--charcoal);
+            color: var(--cream);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text {
+                text-align: center;
+            }
+
+            .hero-image {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                min-height: 80vh;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .benefits-grid, .steps {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 3rem 0;
+            }
+
+            .image-gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-subtitle fade-in">Twoje życie jest ważne</div>
+                <h1 class="fade-in">Czuły Dziennik</h1>
+                <p class="hero-description">
+                    52 tygodnie czułości dla siebie. Przestrzeń, w której każdy dzień ma znaczenie, 
+                    a Ty dajesz sobie wsparcie, którego naprawdę potrzebujesz.
+                </p>
+                <a href="https://buy.stripe.com/dRm6oHe3hejP0mGgzd7g400" class="cta-button">Zamów teraz - Przedsprzedaż</a>
+                <div class="price-tag">
+                    <span class="original-price">199 zł</span>
+                    <span class="current-price">179 zł</span>
+                    <span style="display: block; font-size: 0.9rem; margin-top: 0.5rem; opacity: 0.8;">+ darmowa dostawa do Paczkomatu (wartość 15 zł)</span>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="IMG_2361.jpg" alt="Czuły Dziennik - okładka">
+            </div>
+        </div>
+    </section>
+
+    <!-- Intro Section -->
+    <section class="intro-section">
+        <div class="container">
+            <h2>Czy zdarza Ci się patrzeć wstecz i zastanawiać:<br>gdzie uciekł ten czas?</h2>
+            <div class="intro-text">
+                <p>Kolejny tydzień za Tobą. Kolejny miesiąc. Pędzimy tak szybko, że zapominamy zatrzymać się 
+                przy tym, co ważne. Przy sobie samej.</p>
+                <p style="margin-top: 1.5rem;"><strong>Czuły Dziennik</strong> to nie kolejny planer. To przestrzeń, w której dajesz sobie prawo 
+                do tego, by zwolnić, poczuć i zaopiekować się sobą – z czułością, na jaką zasługujesz każdego dnia.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <h2 style="text-align: center;">Zajrzyj do środka</h2>
+            <div class="image-gallery">
+                <div class="gallery-item">
+                    <img src="IMG_2360.jpg" alt="Czuły Dziennik - strona wprowadzająca">
+                </div>
+                <div class="gallery-item">
+                    <img src="IMG_2358.jpg" alt="Czuły Dziennik - codzienne praktyki">
+                </div>
+                <div class="gallery-item">
+                    <img src="IMG_2359.jpg" alt="Czuły Dziennik - strony wewnętrzne">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <h2 style="text-align: center;">Co zyskujesz z Czułym Dziennikiem?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <span class="benefit-icon">❀</span>
+                    <h3 class="benefit-title">Codzienne praktyki czułości</h3>
+                    <p class="benefit-description">
+                        Podpowiedzi, które pomogą Ci prowadzić ze sobą współczujący dialog – 
+                        nawet w najtrudniejsze dni.
+                    </p>
+                </div>
+
+                <div class="benefit-card">
+                    <span class="benefit-icon">♥</span>
+                    <h3 class="benefit-title">Narzędzia na trudne dni</h3>
+                    <p class="benefit-description">
+                        Przestrzeń na trudne emocje i wsparcie, którego potrzebujesz, 
+                        żeby przez nie przejść.
+                    </p>
+                </div>
+
+                <div class="benefit-card">
+                    <span class="benefit-icon">✦</span>
+                    <h3 class="benefit-title">Wdzięczność i delektowanie się</h3>
+                    <p class="benefit-description">
+                        Codzienne zaproszenie do dostrzegania piękna, małych radości 
+                        i tego, co naprawdę cenne.
+                    </p>
+                </div>
+
+                <div class="benefit-card">
+                    <span class="benefit-icon">◉</span>
+                    <h3 class="benefit-title">Jasne priorytety</h3>
+                    <p class="benefit-description">
+                        Możliwość regularnego sprawdzania – czy dajesz uwagę temu, 
+                        na czym Ci zależy?
+                    </p>
+                </div>
+
+                <div class="benefit-card">
+                    <span class="benefit-icon">❦</span>
+                    <h3 class="benefit-title">Podróż przez 52 tygodnie</h3>
+                    <p class="benefit-description">
+                        Pełne okrążenie dookoła słońca – rok pełen sensu, 
+                        obecności i czułości.
+                    </p>
+                </div>
+
+                <div class="benefit-card">
+                    <span class="benefit-icon">♡</span>
+                    <h3 class="benefit-title">Kochająca życzliwość</h3>
+                    <p class="benefit-description">
+                        Praktyki życzenia sobie i innym współczucia, życzliwości 
+                        i wsparcia.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 style="text-align: center;">Jak to działa?</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Zacznij w dowolnym momencie</h3>
+                    <p>Nie musisz czekać na styczeń. Możesz zacząć w swoje urodziny, 
+                    w pierwszy dzień wiosny – wtedy, gdy poczujesz, że tego potrzebujesz.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">52 tygodnie = 52 szanse</h3>
+                    <p>Każdy tydzień to nowe otwarcie. Nowa przestrzeń na refleksję, 
+                    wsparcie i celebrowanie tego, co jest.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Twoja osobista praktyka</h3>
+                    <p>Kilka minut dziennie. To tyle i aż tyle – by zatrzymać się, 
+                    odetchnąć i spotkać ze sobą.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Tenderness -->
+    <section class="why-section">
+        <div class="container">
+            <h2>Dlaczego czułość?</h2>
+            <div class="why-content">
+                <p>Bo zasługujesz na to, by rozmawiać ze sobą tak, jak rozmawiasz z kimś, 
+                na kim Ci zależy. By dawać sobie wsparcie zamiast krytyki. 
+                By pamiętać, że Twoje życie – wszystkie te dni, tygodnie, chwile – 
+                jest ważne.</p>
+                <p style="margin-top: 1.5rem;"><strong>Czuły Dziennik</strong> pomoże Ci to robić każdego dnia, albo wtedy, kiedy poczujesz potrzebę.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- For Who -->
+    <section class="for-who-section">
+        <div class="container">
+            <h2>Dla kogo jest ten dziennik?</h2>
+            <div class="for-who-content">
+                <p>Ten dziennik jest dla Ciebie, jeśli czujesz, że dni zlewają się w jedno, 
+                a Ty gubisz siebie w codziennych obowiązkach. Jeśli potrzebujesz narzędzi, 
+                żeby poradzić sobie z trudnymi emocjami. Jeśli chcesz nauczyć się rozmawiać 
+                ze sobą łagodniej, bez krytyki i wymagań. Jeśli tęsknisz za przestrzenią, 
+                w której możesz po prostu być – bez oceniania.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta" id="buy">
+        <div class="container">
+            <h2>Zacznij swoją podróż dziś</h2>
+            <p>Twoje 52 tygodnie czekają. 52 okazje, by być dla siebie czułą przewodniczką. 
+            By nie zgubić tego, co cenne. By żyć z większą obecnością i sensem.</p>
+            
+            <div style="margin: 2rem 0;">
+                <div class="price-tag" style="color: white; opacity: 1; animation: none;">
+                    <span class="original-price" style="color: rgba(255,255,255,0.7);">199 zł</span>
+                    <span class="current-price" style="color: white; font-size: 2rem;">179 zł</span>
+                    <span style="display: block; font-size: 1rem; margin-top: 0.5rem;">+ darmowa dostawa do Paczkomatu InPost (wartość 15 zł)</span>
+                </div>
+            </div>
+            
+            <a href="https://buy.stripe.com/dRm6oHe3hejP0mGgzd7g400" class="cta-button cta-button-light">Zamawiam Czuły Dziennik</a>
+            <p style="margin-top: 2rem; font-size: 1rem; opacity: 0.9;">
+                Możesz zacząć w dowolnym momencie – wystarczy wpisać datę 💚
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Czuły Dziennik. Z czułością dla Ciebie. 🌸</p>
+    </footer>
+
+</body>
+</html>
