@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<meta name="theme-color" content="#FCEFDC">
+<title>Dziękuję - Ela Compton</title>
+
+<!-- ============================================= -->
+<!-- META PIXEL - podmień YOUR_PIXEL_ID na swój prawdziwy Pixel ID z Events Managera -->
+<!-- ============================================= -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '481033745796685');
+fbq('track', 'PageView');
+fbq('track', 'Lead');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=481033745796685&ev=Lead&noscript=1"
+/></noscript>
+<!-- ============================================= -->
+<!-- KONIEC KODU PIXELA -->
+<!-- ============================================= -->
+
+<!-- ============================================= -->
+<!-- OPCJONALNE POWIADOMIENIE E-MAIL (Formspree) -->
+<!-- Aktywacja: 1) załóż darmowe konto na formspree.io  -->
+<!-- 2) stwórz formularz, potwierdź e-mail             -->
+<!-- 3) podmień YOUR_FORM_ID poniżej na swój endpoint  -->
+<!-- 4) odkomentuj blok <script> niżej (usuń <!-- i -->)-->
+<!-- ============================================= -->
+<!--
+<script>
+fetch('https://formspree.io/f/YOUR_FORM_ID', {
+  method: 'POST',
+  headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+  body: JSON.stringify({ message: 'Strona podziękowania właśnie się wyświetliła - ktoś zapisał się na sesję 1:1.' })
+});
+</script>
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --peach: #F9E4CB;
+    --peach-light: #FCEFDC;
+    --ink: #3B2A1E;
+    --coral: #E8845A;
+    --terracotta: #D97757;
+    --mauve: #B85C6B;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    color-scheme: light only;
+    background: #FCEFDC;
+  }
+
+  body {
+    background: var(--peach-light) !important;
+    color: var(--ink) !important;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 20px;
+    line-height: 1.65;
+  }
+
+  .card {
+    max-width: 560px;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Signature element: a slow breathing circle — nervous-system regulation made visible */
+  .breath {
+    width: 88px;
+    height: 88px;
+    margin: 0 auto 40px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, var(--coral), var(--mauve) 130%);
+    opacity: 0.9;
+    animation: breathe 5.2s ease-in-out infinite;
+  }
+
+  @keyframes breathe {
+    0%, 100% { transform: scale(0.86); opacity: 0.7; }
+    50% { transform: scale(1.08); opacity: 1; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .breath { animation: none; }
+  }
+
+  h1 {
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-size: clamp(1.6rem, 4.5vw, 2.15rem);
+    line-height: 1.35;
+    color: var(--ink);
+    margin-bottom: 28px;
+    letter-spacing: -0.01em;
+  }
+
+  p {
+    font-size: 1.05rem;
+    color: var(--ink);
+    margin-bottom: 22px;
+  }
+
+  .signature {
+    margin-top: 44px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--terracotta);
+  }
+
+  .divider {
+    width: 40px;
+    height: 1px;
+    background: var(--mauve);
+    margin: 40px auto;
+    opacity: 0.5;
+  }
+
+  .ps {
+    font-size: 0.92rem;
+    color: #5C4A3A;
+    text-align: left;
+    background: var(--peach);
+    border-radius: 16px;
+    padding: 20px 24px;
+    margin-top: 8px;
+  }
+
+  .ps strong { color: var(--ink); }
+
+  .ps a {
+    color: var(--terracotta);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid var(--terracotta);
+  }
+
+  .ps a:hover { opacity: 0.75; }
+
+  @media (max-width: 480px) {
+    .ps { padding: 18px 18px; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="breath" aria-hidden="true"></div>
+
+    <h1>Dziękuję i gratuluję Ci zrobienia pierwszego kroku ku większej sile emocjonalnej i odporności psychicznej.</h1>
+
+    <p>Za chwilę zaczniesz je ćwiczyć.</p>
+
+    <p>Skontaktuję się z Tobą, żeby ustalić dogodny termin spotkania.</p>
+
+    <div class="signature">Z życzliwością,<br>Ela Compton</div>
+
+    <div class="divider"></div>
+
+    <div class="ps">
+      <strong>PS</strong> Jeśli masz już sugestię terminu spotkania, napisz proszę od razu na
+      <a href="mailto:Samowspolczucie.pl@gmail.com?subject=Propozycja%20terminu%20-%20sesja%201:1&body=Cze%C5%9B%C4%87%20Elu%2C%0A%0AMoje%20propozycje%20termin%C3%B3w%20na%20sesj%C4%99%201%3A1%3A%0A1.%20%0A2.%20%0A3.%20">Samowspolczucie.pl@gmail.com</a>
+      kilka opcji. To przyśpieszy sprawę. Dziękuję.
+    </div>
+  </div>
+
+</body>
+</html>
